@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Informa.Models.Produto>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="@ViewBag.Title" content="width=device-width" />
+    <title>“Listagem de Produtos”</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fabricante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fabricante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProdutoId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProdutoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProdutoId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
